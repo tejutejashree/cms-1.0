@@ -7,6 +7,6 @@ route.post(`/login`,authController.login)
 route.get(`/logout`,authController.logout)
 route.get(`/refreshToken`,authController.refreshToken)
 
-route.patch(`/rest-password/:id`,authController.resetPassword)
+route.patch(`/reset-password/:id`,authController.resetPassword)
 
 module.exports = route
