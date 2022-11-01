@@ -9,4 +9,4 @@ route.delete(`/delete/:id`,userController.deleteUser)
 
 route.patch(`/changeRole/:id`,userController.changeRole)
 
-module.exports = route
+module.exports = route 
