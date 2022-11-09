@@ -25,11 +25,18 @@ app.use(fileUpload({
 
 //route modules
 const authRoute = require('./route/authRoute')
-const userRoute = require('./route/userRoute')
+const userRoute = require('./route/userRoute');
+const imageRoute = require('./route/imageRoute')
 
 //Primary route
 app.use(`/api/v1/auth`,authRoute)
 app.use(`/api/v1/user`,userRoute)
+app.use(`/api/v1/image`,imageRoute)
+
+//default route
+app.all(`*`,(req,res) =>{
+    res.status(StatusCodes.NOT_FOUND).json({msg: `The Requested route path Not found`})
+})
 
 const  start = async () => {
     try {
