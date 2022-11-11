@@ -38,10 +38,11 @@ app.use(`/api/v1/auth`,authRoute)
 app.use(`/api/v1/user`,userRoute)
 app.use(`/api/v1/image`,imageRoute)
 app.use(`/api/v1/mail`,mailRoute)
+
 //default route
-app.all(`*`,(req,res) =>{
-    res.status(StatusCodes.NOT_FOUND).json({msg: `The Requested route path Not found`})
-})
+// app.all(`*`,(req,res) =>{
+//     res.status(StatusCodes.NOT_FOUND).json({msg: `The Requested route path Not found`})
+// })
 
 if(process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'staging'){
     app.use(express.static(`client/build`))
