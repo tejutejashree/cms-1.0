@@ -19,18 +19,18 @@ import StudentDashboard from './Student/StudentDashboard'
 import StudentProfile from './Student/StudentProfile'
 import TrainerDashboard from './Trainer/TrainerDashboard'
 import TrainerProfile from './Trainer/TrainerProfile'
+import AllUsers from './Admin/AllUsers'
 
 
 function Main() {
   const context = useContext(DataContext)
-
   const [isLogged] = context.data.authApi.isLogged
   const [isStudent] = context.data.authApi.isStudent
   const [isTrainer] = context.data.authApi.isTrainer
   const [isAdmin] = context.data.authApi.isAdmin
 
   return (
-    <Router history={ history }>
+    <Router history={history}>
         <Menu/>
         <ToastContainer autoClose={5000} position={'top-right'} />
         <Routes>
@@ -50,6 +50,7 @@ function Main() {
                   isLogged && isAdmin ? (
                       <Route element={<ProtectedRoute/>} >
                           <Route path={`/admin/dashboard`} element={<AdminDashboard/>} />
+                          <Route path={`/admin/users`} element={<AllUsers/>} />
                           <Route path={`/admin/profile`} element={<AdminProfile/>} />
                       </Route>
                   ) : null

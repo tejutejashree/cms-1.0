@@ -21,10 +21,10 @@ function Register(props) {
   const submitHandler = async (e) => {
       e.preventDefault()
         try {
-            console.log('user =', user)
+            // console.log('user =', user)
             await axios.post(`/api/v1/auth/register`, user)
               .then(res => {
-                  console.log('after register =', res.data);
+                  // console.log('after register =', res.data);
                   toast.success("User Registered Successfully");
                   navigate('/login')
               }).catch(err => toast.error(err.message));
